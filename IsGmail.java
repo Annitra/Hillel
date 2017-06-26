@@ -10,7 +10,13 @@ public class IsGmail {
         System.out.println(isGmail(input));
     }
     public static boolean isGmail(String input)
-    {
-        return Pattern.matches("^(?i)(?:(?:[^@]+@gmail\\.com)(?:,|$))+$", input);
+    {	boolean isMail=false;
+        boolean email = Pattern.matches("^(?i)(?:[a-z0-9](?:[^@ ]{1,29})@(?:[a-z]{1,10}[a-z0-9\\-.]" +
+                "[a-z0-9]{1,17})\\.(?:[a-z]{1,3})(?:, |$))+$",input);
+       if  (email=true)
+        {
+            isMail= Pattern.matches("^(?i)(?:(?:[^@]+@(?:gmail|yandex|yahoo)\\.(?:com|ru))(?:,|$))+$", input);
+        }
+        return isMail;
     }
 }
